@@ -46,8 +46,8 @@ function calculateCashOut(change, cid) {
       const requiredQuantity = Math.floor(change / denomination);
 
       let cashOut = quantityInDrawer < requiredQuantity 
-        ? cashOut = quantityInDrawer * denomination
-        : cashOut = requiredQuantity * denomination
+        ? quantityInDrawer * denomination
+        : requiredQuantity * denomination
 
       result.push([currencyUnit, cashOut]);
       change = Math.round((change - cashOut) * 100) / 100;
@@ -57,4 +57,4 @@ function calculateCashOut(change, cid) {
    return result;
 }
 
-checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+module.exports = checkCashRegister;
