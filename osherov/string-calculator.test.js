@@ -42,3 +42,7 @@ test('given two digit num in the string then return their sum', () => {
 test('given a negative number then throw an exception', () => {
   expect(() => calculator("-1")).toThrow('negatives not allowed: -1');
 })
+
+test('given multiple negative number then throw an exception with all negatives', () => {
+  expect(() => calculator("-1,-22,-3")).toThrow('negatives not allowed: -1,-22,-3');
+})

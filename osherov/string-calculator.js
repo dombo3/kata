@@ -6,10 +6,10 @@ function calculator(numbers) {
   let regex = /-?\d+/g;
   
   const nums = numbers.match(regex).map(num => Number.parseInt(num));
-  const negative = nums.find(num => num < 0);
+  const negatives = nums.filter(num => num < 0);
   
-  if (negative) {
-    throw new Error('negatives not allowed: ' + negative);
+  if (negatives.length > 0) {
+    throw new Error('negatives not allowed: ' + negatives.join());
   }
 
   return nums
