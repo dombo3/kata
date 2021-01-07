@@ -1,5 +1,6 @@
-const { TestScheduler } = require('jest');
 const calculator = require('./string-calculator');
+
+/*only test for valid input*/
 
 test('given empty string then return 0', () => {
   expect(calculator("")).toEqual(0);
@@ -23,4 +24,8 @@ test('given two numbers then return their sum', () => {
 
 test('given unkonw amount of numbers then return their sum', () => {
   expect(calculator("1,2,3,4,5")).toEqual(15);
+})
+
+test('given new lines between numbers then return their sum', () => {
+  expect(calculator("1\n2,3")).toEqual(6);
 })
