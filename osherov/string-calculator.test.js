@@ -1,4 +1,4 @@
-const add = require('./string-calculator');
+let add = require('./string-calculator');
 
 /*only test for valid input*/
 
@@ -8,6 +8,10 @@ test('given empty string then return 0', () => {
 
 test('given one as string then return one as number', () => {
   expect(add("1")).toEqual(1);
+})
+
+test('given one as string then return one as number', () => {
+  expect(add("//[*][%]\n1*2%3")).toEqual(6);
 })
 
 test('given two as string then return two as number', () => {
@@ -45,4 +49,20 @@ test('given a negative number then throw an exception', () => {
 
 test('given multiple negative number then throw an exception with all negatives', () => {
   expect(() => add("-1,-22,-3")).toThrow('negatives not allowed: -1,-22,-3');
+})
+
+test('given multiple negative number then throw an exception with all negatives', () => {
+  expect(() => add("-1,-22,-3")).toThrow('negatives not allowed: -1,-22,-3');
+})
+
+test('given multiple negative number then throw an exception with all negatives', () => {
+  expect(() => add("-1,-22,-3")).toThrow('negatives not allowed: -1,-22,-3');
+})
+
+test('given delimiters any of length returns sum', () => {
+  expect(add("//[***]\n1***2***3")).toEqual(6);
+})
+
+test('given multiple delimiters returns sum', () => {
+  expect(add("//[*][%]\n1*2%3")).toEqual(6);
 })

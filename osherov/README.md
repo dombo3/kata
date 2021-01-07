@@ -1,0 +1,1 @@
+Solution for https://osherove.com/tdd-kata-1 String Calculator practicing TDD.

@@ -16,4 +16,4 @@ function add(numbers) {
       .reduce((a,b) => a + b);
 }
 
-module.exports = calculator;
+module.exports = add;
