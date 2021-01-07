@@ -33,3 +33,7 @@ test('given new lines between numbers then return their sum', () => {
 test('given different delimiter between numbers then return their sum', () => {
   expect(calculator("//1;\n2;3")).toEqual(6);
 })
+
+test('given two digit num in the string then return their sum', () => {
+  expect(calculator("10;2")).toEqual(12);
+})
