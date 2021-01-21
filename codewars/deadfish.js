@@ -1,7 +1,6 @@
 const deadfish = {}
 
 deadfish.parse = function(chars) {
-
   if (chars === "") {
     return [];
   }
@@ -12,26 +11,13 @@ deadfish.parse = function(chars) {
 
   let value = 0;
   const result = [];
-  const idso = chars.match(/[idso]/g);
-  
-  idso.forEach(char => {
-    switch(char) {
-      case 'i':
-        value++;
-        break;
-      case 'd':
-        value--;
-        break;
-      case 's':
-        value *= value;
-        break;
-      case 'o':
-        result.push(value);
-        break;
-    } 
-  });
-
-  return result;
+  return chars.match(/[idso]/g).reduce((result, char) => {
+    char === 'i' ? value++ :
+    char === 'd' ? value-- :
+    char === 's' ? value *= value :
+    char === 'o' ? result.push(value) : "";
+    return result;
+  }, [])
 }
 
 module.exports = deadfish;
