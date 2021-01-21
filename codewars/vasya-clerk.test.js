@@ -7,7 +7,7 @@ describe('vasya-clerk', () => {
     it('one 25 ticket', () => {
       const input = [25];
       const result = tickets(input);
-      const expected = true;
+      const expected = "YES";
       
       assert.strictEqual(result, expected);
     })
@@ -15,7 +15,7 @@ describe('vasya-clerk', () => {
     it('two 25 tickets', () => {
       const input = [25,25];
       const result = tickets(input);
-      const expected = true;
+      const expected = "YES";
       
       assert.strictEqual(result, expected);
     })
@@ -23,7 +23,7 @@ describe('vasya-clerk', () => {
     it('three tickets and have change for third ticket', () => {
       const input = [25,25,50];
       const result = tickets(input);
-      const expected = true;
+      const expected = "YES";
 
       assert.strictEqual(result, expected);
     })
@@ -31,7 +31,7 @@ describe('vasya-clerk', () => {
     it('four tickets and have change for third and fourth ticket', () => {
       const input = [25, 25, 50, 100];
       const result = tickets(input);
-      const expected = true;
+      const expected = "YES";
 
       assert.strictEqual(result, expected);
       
@@ -43,7 +43,7 @@ describe('vasya-clerk', () => {
     it('one ticket', () => {
       const input = [50];
       const result = tickets(input);
-      const expected = false;
+      const expected = "NO";
 
       assert.strictEqual(result, expected);
     })
@@ -51,7 +51,7 @@ describe('vasya-clerk', () => {
     it('two tickets', () => {
       const input = [25, 100];
       const result = tickets(input);
-      const expected = false;
+      const expected = "NO";
 
       assert.strictEqual(result, expected);
     })
@@ -59,7 +59,7 @@ describe('vasya-clerk', () => {
     it('more tickts', () => {
       const input = [25, 25, 50, 50, 100];
       const result = tickets(input);
-      const expected = false;
+      const expected = "NO";
 
       assert.strictEqual(result, expected);
     })
