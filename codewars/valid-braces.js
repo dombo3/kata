@@ -1,34 +1,28 @@
-const b = {
+const matches = {
   "(":")",
   "[":"]",
   "{":"}",
 }
-
-const opens = ["(", "[", "{"];
-
 const lastOpen = [];
+let currentBrace;
 
 function validBraces(braces) {
   if (braces.length % 2 != 0) {
     return false;
   }
-  let valid = true;
-  const bracesArray = braces.split('').forEach(brace => {
-    if(isOpen(brace)) {
-      lastOpen.unshift(brace);
+
+  for (let i = 0; i < braces.length; i++) {
+    currentBrace = braces[i];
+    if(matches[currentBrace]) {
+      lastOpen.unshift(currentBrace);
     } else {
-      let last = lastOpen.shift();
-      if (b[last] !== brace) {
-         valid = false;
+      if (matches[lastOpen.shift()] !== currentBrace) {
+         return false;
       }
     }
-   });
+  }
   
-    return valid && lastOpen.length === 0;
-}
-  
-function isOpen(brace) {
-  return opens.includes(brace);
+  return lastOpen.length === 0;
 }
 
 module.exports = validBraces;
