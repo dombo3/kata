@@ -1,5 +1,5 @@
 function narcissistic(num) {
-  const digits = getDigitsOf(num)
+  const digits = new String(num).split('');
   const narcissisticNumber = digits.reduce((acc, curr) => {
     return acc + Math.pow(curr, digits.length);
   }, 0)
@@ -7,17 +7,4 @@ function narcissistic(num) {
   return narcissisticNumber === num;
 }
 
-function getDigitsOf(num) {
-  const digits = [];
-  let residual = num;
-
-  while (residual >= 1) {
-    digits.unshift(residual % 10);
-    residual = Math.floor(residual / 10);
-  }
-
-  return digits;
-}
-
 module.exports.narcissistic = narcissistic;
-module.exports.getDigitsOf = getDigitsOf;
